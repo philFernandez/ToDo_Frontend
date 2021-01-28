@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, Input, Label } from "reactstrap";
 import "./ToDoApp.css";
-import AllToDo from "./AllToDo";
 import ToDoService from "./service/ToDoService";
 
 class ToDoApp extends Component {
