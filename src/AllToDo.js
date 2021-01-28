@@ -16,12 +16,24 @@ class AllToDo extends Component {
   }
 
   render() {
+    console.log(this.state.todos);
     return (
-      <ul>
-        {this.state.todos.map((todo) => (
-          <li key={todo.id}>{todo.description}</li>
-        ))}
-      </ul>
+      <div className="container">
+        <h1>All ToDo</h1>
+        <hr />
+        <ul>
+          {this.state.todos.map((todo) => (
+            <div key={todo.id}>
+              <h3>{todo.description}</h3>
+              <ul>
+                <li>Priority : {todo.priority}</li>
+                <li>Start : {todo.startDate}</li>
+                <li>End : {todo.endDate}</li>
+              </ul>
+            </div>
+          ))}
+        </ul>
+      </div>
     );
   }
 }
