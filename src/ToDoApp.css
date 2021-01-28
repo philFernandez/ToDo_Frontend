@@ -1,10 +1,15 @@
 body {
-  background: linear-gradient(270deg, chocolate, brown);
+  background: linear-gradient(270deg, blue, aliceblue);
 }
 
 div.header {
-  text-shadow: 2px 2px 6px orange;
+  text-shadow: 2px 2px 6px lightblue;
+  /* font-family: serif; */
 }
+
+/* div.header h1 {
+  font-size: 4rem;
+} */
 
 .label {
   font-size: 1.5rem;
