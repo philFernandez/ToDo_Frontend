@@ -14,7 +14,6 @@ class ToDoApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
       newTodo: this.emptyTodo,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -47,11 +46,6 @@ class ToDoApp extends Component {
     Array.from(event.target).map((e) => (e.value = ""));
   }
 
-  showAllTodo() {
-    ToDoService.getTodos().then((res) => {
-      this.setState({ todos: res.data });
-    });
-  }
   render() {
     // const item = this.state.newTodo;
     return (

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container } from "reactstrap";
 import ToDoService from "../service/ToDoService";
 
 class ListToDo extends Component {
@@ -16,8 +17,10 @@ class ListToDo extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>LIST ALL</h1>
+      <Container>
+        <h1 className="display-1" align="center">
+          LIST ALL
+        </h1>
         <div className="container">
           <table className="table">
             <thead>
@@ -40,7 +43,7 @@ class ListToDo extends Component {
             </tbody>
           </table>
         </div>
-      </div>
+      </Container>
     );
   }
 }
