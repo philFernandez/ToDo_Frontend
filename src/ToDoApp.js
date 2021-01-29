@@ -20,18 +20,54 @@ class ToDoApp extends Component {
   }
 
   // make sure evt.target[..].value's arent empty
+  /** 
   handleSubmit(evt) {
     evt.preventDefault();
+    const userInputs = Array.from(evt.target).map((e) => e.value);
+    console.log(userInputs);
     const userInput = {
-      description: evt.target[0].value,
-      startDate: evt.target[1].value,
-      endDate: evt.target[2].value,
-      priority: evt.target[3].value,
+      description: userInputs[0],
+      startDate: userInputs[1],
+      endDate: userInputs[2],
+      priority: userInputs[3],
     };
     ToDoService.postTodo(userInput).then((res) =>
       this.setState({ newTodo: res })
     );
     Array.from(evt.target).map((e) => (e.value = ""));
+  }
+  */
+  handleSubmit(event) {
+    // prevent GET request from button press
+    event.preventDefault();
+    // Call post method in ToDoService
+    // passing in object literal with the form
+    // inputs as the values to the object.
+    // The HTMLCollection is converted to an array,
+    // then each element mapped to only its own "value" property.
+    // Slice off the last element because it is a form button
+    // and has no value property (not any useful to me anyway).
+    // Map the resulting values array to an array of arrays
+    // each containing [key, value] pairs. These are then converted
+    // into the object literal that ToDoService.postTodo is expecting
+    ToDoService.postTodo(
+      Object.fromEntries(
+        Array.from(event.target)
+          .map((val) => val.value)
+          .slice(0, 4)
+          .map((values, index) => [
+            Object.keys({
+              description: "",
+              startDate: "",
+              endDate: "",
+              priority: "",
+            })[index],
+            values,
+          ])
+      )
+    ).then((response) => this.setState({ newTodo: response }));
+    // clear text from input boxes
+    Array.from(event.target).map((e) => (e.value = ""));
   }
 
   showAllTodo() {
@@ -57,26 +93,19 @@ class ToDoApp extends Component {
               <Label for="description" className="label">
                 What do you need ToDo?
               </Label>
-              <Input
-                type="text"
-                id="description"
-                name="description"
-                // value={item.description || ""}
-                // onChange={this.handleChange}
-                autoComplete="description"
-              />
+              <Input type="text" id="description" name="description" required />
             </FormGroup>
             <FormGroup>
               <Label for="startDate" className="label">
                 When do you need to start?
               </Label>
-              <Input type="text" id="startDate" />
+              <Input type="text" id="startDate" required />
             </FormGroup>
             <FormGroup>
               <Label for="endDate" className="label">
                 When do you need to finish?
               </Label>
-              <Input type="text" id="endDate" />
+              <Input type="text" id="endDate" required />
             </FormGroup>
             <FormGroup>
               <Label for="priority" className="label">

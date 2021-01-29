@@ -1,15 +1,14 @@
 import axios from "axios";
 
-const GET_ALL_URL = "http://localhost:8080/api/todos";
-const POST_NEW_URL = "http://localhost:8080/api/todo";
+const API_END_POINT = "http://localhost:8080/api";
 
 class ToDoService {
   getTodos() {
-    return axios.get(GET_ALL_URL);
+    return axios.get(API_END_POINT + "/todos");
   }
 
   postTodo(newTodo) {
-    return axios.post(POST_NEW_URL, newTodo);
+    return axios.post(API_END_POINT + "/todo", newTodo);
   }
 }
 
