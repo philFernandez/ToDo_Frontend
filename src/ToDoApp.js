@@ -16,32 +16,22 @@ class ToDoApp extends Component {
       todos: [],
       newTodo: this.emptyTodo,
     };
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(evt) {
-    console.log(evt);
-  }
-
+  // make sure evt.target[..].value's arent empty
   handleSubmit(evt) {
     evt.preventDefault();
-    this.setState(
-      {
-        newTodo: {
-          description: evt.target[0].value,
-          startDate: evt.target[1].value,
-          endDate: evt.target[2].value,
-          priority: evt.target[3].value,
-        },
-      },
-      () => {
-        ToDoService.postTodo(this.state.newTodo).then((res) =>
-          this.setState({ newTodo: res })
-        );
-        Array.from(evt.target).map((e) => (e.value = ""));
-      }
+    const userInput = {
+      description: evt.target[0].value,
+      startDate: evt.target[1].value,
+      endDate: evt.target[2].value,
+      priority: evt.target[3].value,
+    };
+    ToDoService.postTodo(userInput).then((res) =>
+      this.setState({ newTodo: res })
     );
+    Array.from(evt.target).map((e) => (e.value = ""));
   }
 
   showAllTodo() {
