@@ -19,37 +19,13 @@ class ToDoApp extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // make sure evt.target[..].value's arent empty
-  /** 
-  handleSubmit(evt) {
-    evt.preventDefault();
-    const userInputs = Array.from(evt.target).map((e) => e.value);
-    console.log(userInputs);
-    const userInput = {
-      description: userInputs[0],
-      startDate: userInputs[1],
-      endDate: userInputs[2],
-      priority: userInputs[3],
-    };
-    ToDoService.postTodo(userInput).then((res) =>
-      this.setState({ newTodo: res })
-    );
-    Array.from(evt.target).map((e) => (e.value = ""));
-  }
-  */
+  /**
+   * See (*1) at bottom of page for documentation
+   * @param {Form} event
+   */
   handleSubmit(event) {
     // prevent GET request from button press
     event.preventDefault();
-    // Call post method in ToDoService
-    // passing in object literal with the form
-    // inputs as the values to the object.
-    // The HTMLCollection is converted to an array,
-    // then each element mapped to only its own "value" property.
-    // Slice off the last element because it is a form button
-    // and has no value property (not any useful to me anyway).
-    // Map the resulting values array to an array of arrays
-    // each containing [key, value] pairs. These are then converted
-    // into the object literal that ToDoService.postTodo is expecting
     ToDoService.postTodo(
       Object.fromEntries(
         Array.from(event.target)
@@ -151,3 +127,16 @@ class ToDoApp extends Component {
 }
 
 export default ToDoApp;
+
+// (*1) =========================================================
+// Call post method in ToDoService
+// passing in object literal with the form
+// inputs as the values to the object.
+// The HTMLCollection is converted to an array,
+// then each element mapped to only its own "value" property.
+// Slice off the last element because it is a form button
+// and has no value property (not any useful to me anyway).
+// Map the resulting values array to an array of arrays
+// each containing [key, value] pairs. These are then converted
+// into the object literal that ToDoService.postTodo is expecting
+// ==============================================================
