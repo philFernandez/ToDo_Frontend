@@ -24,7 +24,7 @@ class ToDoApp extends Component {
     console.log(evt);
   }
 
-  async handleSubmit(evt) {
+  handleSubmit(evt) {
     evt.preventDefault();
     this.setState(
       {
@@ -35,18 +35,18 @@ class ToDoApp extends Component {
           priority: evt.target[3].value,
         },
       },
-      () =>
+      () => {
         ToDoService.postTodo(this.state.newTodo).then((res) =>
           this.setState({ newTodo: res })
-        )
+        );
+        Array.from(evt.target).map((e) => (e.value = ""));
+      }
     );
-    // console.log(this.state);
   }
 
   showAllTodo() {
     ToDoService.getTodos().then((res) => {
       this.setState({ todos: res.data });
-      console.log(this.state.todos);
     });
   }
   render() {
