@@ -18,9 +18,6 @@ class ListToDo extends Component {
   render() {
     return (
       <Container>
-        <h1 className="display-1" align="center">
-          LIST ALL
-        </h1>
         <div className="container">
           <table className="table">
             <thead>
