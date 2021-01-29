@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 import "./ToDoApp.css";
 import ToDoService from "./service/ToDoService";
+import history from "./history";
 
 class ToDoApp extends Component {
   emptyTodo = {
@@ -97,30 +98,13 @@ class ToDoApp extends Component {
               <Button style={{ marginRight: "1rem" }}>Save ToDo</Button>
             </FormGroup>
           </Form>
-          <Button onClick={() => this.showAllTodo()}>Show All</Button>
+          <Button
+            className="btn-success"
+            onClick={() => history.push("/ListToDo")}
+          >
+            Show All
+          </Button>
         </Container>
-        <div className="container">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>ToDo</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Priority</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.state.todos.map((todo) => (
-                <tr key={todo.id}>
-                  <td>{todo.description}</td>
-                  <td>{todo.startDate}</td>
-                  <td>{todo.endDate}</td>
-                  <td>{todo.priority}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </div>
     );
   }
