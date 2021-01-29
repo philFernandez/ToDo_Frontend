@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
+import { Button, Container } from "reactstrap";
 import ToDoService from "../service/ToDoService";
+import history from "../history";
 
 class ListToDo extends Component {
   constructor(props) {
@@ -40,6 +41,9 @@ class ListToDo extends Component {
             </tbody>
           </table>
         </div>
+        <Button className="btn-primary" onClick={() => history.push("/")}>
+          Home
+        </Button>
       </Container>
     );
   }
