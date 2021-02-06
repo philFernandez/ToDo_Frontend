@@ -38,7 +38,6 @@ export default class Login extends Component {
         AuthService.login(this.state.username, this.state.password).then(
             () => {
                 this.props.history.push("/");
-                // window.location.reload();
             },
             (error) => {
                 const resMessage =
@@ -58,10 +57,11 @@ export default class Login extends Component {
     render() {
         return (
             <Container>
+                <h1 align="center" className="display-4" style={{paddingTop: 48}}>Login Existing User</h1>
                 <Form onSubmit={this.handleLogin}>
                     <FormGroup>
                         <Label for="username" className="label">
-                            username
+                            Username
                         </Label>
                         <Input
                             type="text"
@@ -74,7 +74,7 @@ export default class Login extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="password" className="label">
-                            password
+                            Password
                         </Label>
                         <Input
                             type="password"

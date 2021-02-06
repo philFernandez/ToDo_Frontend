@@ -35,13 +35,17 @@ export default class Register extends Component {
             successful: false,
         });
 
-
         AuthService.register(this.state.username, this.state.password).then(
             (response) => {
-                this.setState({
-                    message: response.data.message,
-                    successful: true,
-                });
+                this.setState(
+                    {
+                        message: response.data.message,
+                        successful: true,
+                    },
+                    () => {
+                        this.props.history.push("/login");
+                    }
+                );
             },
             (error) => {
                 const resMessage =
@@ -61,12 +65,13 @@ export default class Register extends Component {
     render() {
         return (
             <Container>
+                <h1 align="center" className="display-4" style={{paddingTop: 48}}>Register New User</h1>
                 <Form onSubmit={this.handleRegister}>
                     {!this.state.successful && (
                         <Container>
                             <FormGroup>
                                 <Label for="username" className="label">
-                                    username
+                                    Username
                                 </Label>
                                 <Input
                                     type="text"
@@ -80,7 +85,7 @@ export default class Register extends Component {
                             </FormGroup>
                             <FormGroup>
                                 <Label for="password" className="label">
-                                    password
+                                    Password
                                 </Label>
                                 <Input
                                     type="password"
