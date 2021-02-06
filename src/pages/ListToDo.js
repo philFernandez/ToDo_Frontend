@@ -13,7 +13,7 @@ class ListToDo extends Component {
   }
   getList() {
     ToDoService.getTodos().then((response) =>
-      this.setState({ todos: response.data }, () => console.log(this.state))
+      this.setState({ todos: response.data })
     );
   }
   render() {
