@@ -75,6 +75,7 @@ export default class Register extends Component {
                                     value={this.state.username}
                                     onChange={this.onChangeUsername}
                                     required
+                                    autoComplete="username"
                                 />
                             </FormGroup>
                             <FormGroup>
@@ -88,6 +89,7 @@ export default class Register extends Component {
                                     value={this.state.password}
                                     onChange={this.onChangePassword}
                                     required
+                                    autoComplete="current-password"
                                 />
                             </FormGroup>
                             <FormGroup>

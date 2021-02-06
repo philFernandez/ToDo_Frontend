@@ -37,8 +37,8 @@ export default class Login extends Component {
 
         AuthService.login(this.state.username, this.state.password).then(
             () => {
-                this.props.history.push("/profile");
-                window.location.reload();
+                this.props.history.push("/");
+                // window.location.reload();
             },
             (error) => {
                 const resMessage =
@@ -83,6 +83,7 @@ export default class Login extends Component {
                             value={this.state.password}
                             onChange={this.onChangePassword}
                             required
+                            autoComplete="current-password"
                         />
                     </FormGroup>
                     <FormGroup>
