@@ -44,7 +44,7 @@ class ListToDo extends Component {
                 <Button
                     className="btn-success"
                     onClick={() => history.push("/")}
-                    style={{width: 200}}
+                    style={{ width: 200 }}
                 >
                     Home
                 </Button>

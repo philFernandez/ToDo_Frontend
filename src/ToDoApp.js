@@ -67,13 +67,13 @@ class ToDoApp extends Component {
                             <Label for="startDate" className="label">
                                 When do you need to start?
                             </Label>
-                            <Input type="text" id="startDate" required />
+                            <Input type="date" id="startDate" required />
                         </FormGroup>
                         <FormGroup>
                             <Label for="endDate" className="label">
                                 When do you need to finish?
                             </Label>
-                            <Input type="text" id="endDate" required />
+                            <Input type="date" id="endDate" required />
                         </FormGroup>
                         <FormGroup>
                             <Label for="priority" className="label">
