@@ -86,24 +86,20 @@ class ToDoApp extends Component {
                             </select>
                         </FormGroup>
                         <FormGroup>
-                            <Button style={{ width: 200 }}>
+                            <Button
+                                style={{ width: 200 }}
+                                className="btn-success"
+                            >
                                 Save ToDo
                             </Button>
                         </FormGroup>
                     </Form>
                     <Button
-                        className="btn-success"
                         onClick={() => history.push("/ListToDo")}
-                        style={{marginRight: "1rem", width: 200}}
+                        style={{ marginRight: "1rem", width: 200 }}
+                        className="btn-warning"
                     >
                         Show All
-                    </Button>
-                    <Button
-                        className="btn-warning"
-                        onClick={() => history.push("/register")}
-                        style={{width: 200}}
-                    >
-                        Register
                     </Button>
                 </Container>
                 <br />

@@ -57,7 +57,13 @@ export default class Login extends Component {
     render() {
         return (
             <Container>
-                <h1 align="center" className="display-4" style={{paddingTop: 48}}>Login Existing User</h1>
+                <h1
+                    align="center"
+                    className="display-4"
+                    style={{ paddingTop: 48 }}
+                >
+                    Login Existing User
+                </h1>
                 <Form onSubmit={this.handleLogin}>
                     <FormGroup>
                         <Label for="username" className="label">
@@ -87,11 +93,21 @@ export default class Login extends Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Button style={{ width: 200 }}>
+                        <Button
+                            style={{ width: 200 }}
+                            className="btn btn-success"
+                        >
                             Login
                         </Button>
                     </FormGroup>
                 </Form>
+                <Button
+                    onClick={() => this.props.history.push("/register")}
+                    style={{ width: 200 }}
+                    className="btn btn-warning"
+                >
+                    Register New User
+                </Button>
             </Container>
         );
     }

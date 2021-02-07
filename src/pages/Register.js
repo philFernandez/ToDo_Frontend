@@ -98,7 +98,10 @@ export default class Register extends Component {
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <Button style={{ width: 200 }}>
+                                <Button 
+                                style={{ width: 200 }}
+                                className="btn-success"
+                                >
                                     Register
                                 </Button>
                             </FormGroup>
