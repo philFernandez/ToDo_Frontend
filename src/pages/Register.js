@@ -98,7 +98,7 @@ export default class Register extends Component {
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <Button style={{ marginRight: "1rem" }}>
+                                <Button style={{ width: 200 }}>
                                     Register
                                 </Button>
                             </FormGroup>

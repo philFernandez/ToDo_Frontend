@@ -87,7 +87,7 @@ export default class Login extends Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Button style={{ marginRight: "1rem" }}>
+                        <Button style={{ width: 200 }}>
                             Login
                         </Button>
                     </FormGroup>
