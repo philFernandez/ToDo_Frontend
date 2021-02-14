@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/";
+const API_URL = "https://pure-dusk-97009.herokuapp.com/";
 
 class AuthService {
     constructor() {
